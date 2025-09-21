@@ -1,4 +1,3 @@
-// Foo.java
 package com.jad;
 
 import java.util.ArrayList;
@@ -42,13 +41,13 @@ public class Foo {
     }
 
     public void setCorge(Corge corge) {
-
+        // détacher l'ancien
         if (this.corge != null && this.corge.getFoo() == this) {
-
+            // mettre à null côté Corge sans reboucler
             this.corgeSetFooNull(this.corge);
         }
         this.corge = corge;
-
+        // attacher le nouveau
         if (corge != null && corge.getFoo() != this) {
             corge.setFoo(this);
         }
@@ -56,6 +55,7 @@ public class Foo {
 
 
     private void corgeSetFooNull(Corge corge) {
+
         corge.setFoo(null);
     }
 
